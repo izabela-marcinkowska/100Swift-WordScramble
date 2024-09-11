@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    @State private var points = 0
+    
     var body: some View {
         NavigationStack {
             List {
@@ -34,6 +36,16 @@ struct ContentView: View {
                 }
             }
             .navigationTitle(rootWord)
+            .toolbar{
+                ToolbarItem(placement: .bottomBar) {
+                    Button("Another word") {
+                        startGame()
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("Points for this word: \(points)")
+                }
+            }
             .onSubmit(addNewWord)
             .onAppear(perform: startGame)
             .alert(errorTitle, isPresented: $showingError) {
@@ -66,12 +78,15 @@ struct ContentView: View {
             wordError(title: "Word too short", message: "Word must be at least 3 letters.")
             return
         }
+        addPoints(word: answer)
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
         newWord = ""
     }
     func startGame() {
+        usedWords = []
+        points = 0
         // Find the url for start.txt in our app bundle
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             // Load start.txt into a string
@@ -119,6 +134,14 @@ struct ContentView: View {
     
     func isLongEnough (word: String) -> Bool {
         word.count > 2
+    }
+    
+    func addPoints (word: String) -> Void {
+        points += 1
+        points += word.count
+        if word.count > 5 {
+            points += 2
+        }
     }
 
     
