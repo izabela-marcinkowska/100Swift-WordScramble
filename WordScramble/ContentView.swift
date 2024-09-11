@@ -7,23 +7,39 @@
 
 import SwiftUI
 
-struct ContentView: View {    
+struct ContentView: View {
+    @State private var usedWords = [String] ()
+    @State private var rootWord = ""
+    @State private var newWord = ""
+    
     var body: some View {
-        VStack {
+        NavigationStack {
             List {
-                ForEach(0..<5) {
-                    Text("Dynamic row \($0)")
+                Section {
+                    TextField("Enter your word", text: $newWord)
+                        .textInputAutocapitalization(.never)
                 }
-                Text("Static one")
-                    .listStyle(.grouped)
-            }
-            List {
-                ForEach(people, id: \.self) {
-                    Text($0)
+                Section {
+                    ForEach(usedWords, id: \.self) { word in
+                        HStack {
+                            Image(systemName: "\(word.count).circle")
+                            Text(word)
+                        }
+                    }
                 }
             }
-            
+            .navigationTitle(rootWord)
+            .onSubmit(addNewWord)
         }
+    }
+    func addNewWord () {
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard answer.count > 0 else { return }
+        withAnimation {
+            usedWords.insert(answer, at: 0)
+        }
+        newWord = ""
     }
 }
 
