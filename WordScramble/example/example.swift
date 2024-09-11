@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {    
+struct example: View {
+    let people = ["Finn", "Leia", "Luke", "Rey"]
     var body: some View {
         VStack {
             List {

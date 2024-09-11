@@ -11,6 +11,7 @@
 		1716486C2C90710B002B1C3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716486B2C90710B002B1C3A /* ContentView.swift */; };
 		1716486E2C90710C002B1C3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1716486D2C90710C002B1C3A /* Assets.xcassets */; };
 		171648712C90710C002B1C3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 171648702C90710C002B1C3A /* Preview Assets.xcassets */; };
+		171648792C91876D002B1C3A /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171648782C91876D002B1C3A /* example.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		1716486B2C90710B002B1C3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1716486D2C90710C002B1C3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		171648702C90710C002B1C3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		171648782C91876D002B1C3A /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		171648682C90710B002B1C3A /* WordScramble */ = {
 			isa = PBXGroup;
 			children = (
+				171648772C91875A002B1C3A /* example */,
 				171648692C90710B002B1C3A /* WordScrambleApp.swift */,
 				1716486B2C90710B002B1C3A /* ContentView.swift */,
 				1716486D2C90710C002B1C3A /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				171648702C90710C002B1C3A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		171648772C91875A002B1C3A /* example */ = {
+			isa = PBXGroup;
+			children = (
+				171648782C91876D002B1C3A /* example.swift */,
+			);
+			path = example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171648792C91876D002B1C3A /* example.swift in Sources */,
 				1716486C2C90710B002B1C3A /* ContentView.swift in Sources */,
 				1716486A2C90710B002B1C3A /* WordScrambleApp.swift in Sources */,
 			);
