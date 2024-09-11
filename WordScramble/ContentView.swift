@@ -62,6 +62,10 @@ struct ContentView: View {
             wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
             return
         }
+        guard isLongEnough(word: answer) else {
+            wordError(title: "Word too short", message: "Word must be at least 3 letters.")
+            return
+        }
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
@@ -111,6 +115,10 @@ struct ContentView: View {
         errorTitle = title
         errorMessage = message
         showingError = true
+    }
+    
+    func isLongEnough (word: String) -> Bool {
+        word.count > 2
     }
 
     
